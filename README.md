@@ -1,2 +1,2 @@
 # finalhtml
-This is a site created by me for my Mobile App class.
+This is a site that I created by following weekly instructions. It has a list view that goes to separate pages that all have a theme that I created using ThemeRoller. The site has a panel and a grid that don't do anything because I wasn't instructed to do anymore than make them. There is also a form that uses local storage as well as a favorites page that doesn't work quite well. On the favorite page the submit button and clear button don't work. That's all there is to my website.
