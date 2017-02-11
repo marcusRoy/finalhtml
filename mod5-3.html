@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang = "en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="themes/sports.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+<div data-role="page">
+  <div data-role="panel" id="myPanel">
+    <h2>Panel Header</h2>
+    <ul data-role="listview" data-theme="c">
+      <li data-role="menu"><a href="#">Menu 1</a></li>
+      <li data-role="menu"><a href="#">Menu 2</a></li>
+      <li data-role="menu"><a href="#">Menu 3</a></li>
+      <li data-role="menu"><a href="#">Menu 4</a></li>
+    </ul>
+    <p>You can close this panel by clicking outside of it, pressing the Esc key, or by swiping</p>
+  </div>
+
+<div data-role="header">
+  <h1>Marcus Roy's jQuery Page</h1>
+  <a href="#myPanel" class="ui-btn ui-btn-inline">Open Panel</a>
+</div>
+
+<div data-role="content">
+  <ul data-role="listview" data-theme="c" data-filter="true">
+    <li><a href="#page1">Page 1</a></li>
+    <li><a href="#page2">Page 2</a></li>
+    <li><a href="#page3">Page 3</a></li>
+    <li><a href="#page4">Favorites</a></li>
+    <li><a href="#grid">Grid</a></li>
+    <li><a href="#form">Form</a></li>
+  </ul>
+</div>
+
+<div data-role="footer">
+  <h4>Marcus Roy's App &copy; 2017</h4>
+</div>
+</div>
+
+<div id="page1" data-role="page" data-theme="b" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Page 1</h1>
+  </div>
+  <div data-role="content">
+    <h3>Introduction</h3>
+    <p>This is my introduction page to my application!</p>
+  </div>
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+</div>
+
+<div id="page2" data-role="page" data-theme="b" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Page 2</h1>
+  </div>
+  <div data-role="content">
+    <h3>Body</h3>
+    <p>This would be the bulk of my application.</p>
+  </div>
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+</div>
+
+<div id="page3" data-role="page" data-theme="b" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Page 3</h1>
+  </div>
+  <div data-role="content">
+    <h3>Final</h3>
+    <p>This is the ending of my application,</p>
+  </div>
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+</div>
+
+<div id="page4" data-role="page" data-theme="c" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Favorites</h1>
+  </div>
+  <div data-role="content">
+    <script type="text/javascript">
+    function doFirst(){
+      var button = document.getElementById('button');
+      button.addEventListener("click",save,false);
+      display();
+    }
+    function save(){
+      var movie = document.getElementById('movie');
+      var food = document.getElementById('food');
+      var drink = document.getElementById('drink');
+      localStorage.setItem(movie,food,drink);
+      display();
+      movie.value="";
+      food.value="";
+      drink.value="";
+    }
+    function display(){
+      var display = document.getElementById('display');
+      display.innerHTML="";
+      for(var i=0; i<localStorage.length; i++){
+        var a = localStorage.movie(i);
+        var b = localStorage.food(a);
+        var c = localStorage.getItem(b);
+        display.innerHTML += a+" - "+b+" - "+c+"<br>";
+      }
+    }
+    function clear(){
+      localStorage.clear();
+      location.reload();
+    }
+    </script>
+    <form>
+      <p>Enter your favorite movie:<br><input type="text" id="movie" /></p>
+      <p>Enter your favorite food:<br><input type="text" id="food" /></p>
+      <p>Enter your favorite drink:<br><input type="text" id="drink" /></p>
+      <p><input type="submit" id="button" value="Submit" /></p>
+      <a href="javascript:clear()">Clear Items</a>
+    </form>
+    <div id="display">
+
+    </div>
+  </div>
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+</div>
+
+<div id="grid" data-role="page" data-theme="c" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Grid</h1>
+  </div>
+  <div data-role="content">
+    <h3>Favorite Songs</h3>
+    <ol data-role="listview" data-theme="c" data-filter="true">
+      <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height::60px">Block A</div></div>
+      <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height::60px">Block B</div></div>
+      <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height::60px">Block C</div></div>
+      <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height::60px">Block D</div></div>
+      <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height::60px">Block E</div></div>
+      <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height::60px">Block F</div></div>
+    </ol>
+  </div>
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+</div>
+
+<div id="form" data-role="form" data-theme="c" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <h1>Form</h1>
+  </div>
+  <div data-role="content">
+    <form name="form" id="form">
+      <textarea class="localstorage" placeholder="This will be saved to HTML localstorage." autofocus></textarea>
+      <label for="name1">First Name</label>
+      <input type="text" name="name1" id="name1" value="">
+      <label for="name2">Last Name</label>
+      <input type="text" name="name2" id="name2" value="">
+      <fieldset data-role="genderid">
+        <legend>Gender</legend>
+        <input type="radio" name="gender1" id="gender1" value="male" checked="checked">
+        <label for ="gender1">Male</label>
+        <input type="radio" name="gender2" id="gender2" value="female">
+        <label for ="gender2">Female</label>
+        <input type="radio" name="gender3" id="gender3" value="other">
+        <label for ="gender3">Other</label>
+      </fieldset>
+      <label for="ageid" class="select">Age Group</label>
+      <select name="ageid" id="ageid">
+        <option value="kid">0-12</option>
+        <option value="teen">13-20</option>
+        <option value="young">21-30</option>
+        <option value="middle">31-40</option>
+        <option value="old">41+</option>
+      </select>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Clear">
+      <input type="empty" value="Empty">
+    </form>
+  </div>
+
+  <div data-role="footer" data-theme="a">
+    <h4>Marcus Roy's App &copy; 2017</h4>
+  </div>
+
+<script>
+(function() {
+
+  var rasm = document.querySelector('.localstorage');
+
+  function supportsLocalStorage(){
+    return typeof(Storage)!=='undefined';
+  }
+
+  if(!supportsLocalStorage()){
+    rasm.value = 'Your browser does not support localStorage';
+  }else{
+    try{
+      setInterval(function(){
+        localStorage.setItem('autosave', rasm.value);
+      },1000);
+    }catch (e){
+      if(e == QUOTA_EXCEEDED_ERR) {
+        alert('Quota exceeded');
+      }
+    }
+    if (localStorage.getItem('autosave')){
+      rasm.value =localStorage.getItem('autosave');
+    }
+    document.querySelector('.clear').onclick = function(){
+      rasm.value = '';
+      localStorage.removeItem('autosave');
+    };
+    document.querySelector('.empty').onclick = function(){
+      rasm.value ='';
+      localStorage.clear();
+    };
+  }
+})();
+</script>
+<script>
+localStorage.setItem("movie", "The Goonies");
+localStorage.setItem("food", "Steak");
+localStorage.setItem("drink", "Diet Coke");
+</script>
+</body>
+</html>
